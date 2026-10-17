@@ -1,0 +1,54 @@
+<!DOCTYPE html>
+<html lang="en"><head><meta charset="utf-8"><meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Alyster Designer</title><link rel="stylesheet" href="/style.css"></head>
+<body>
+<header>
+  <div class="logo"><span class="ico">▦</span><div><b>ALYSTER</b> <em>DESIGNER</em><small>Designer tool</small></div></div>
+  <div class="seg"><button id="vD" class="on">DESIGNER</button><button id="vC">CODE EDITOR</button></div>
+  <div class="grp"><button id="undo" title="Undo (Ctrl+Z)">↶</button><button id="redo" title="Redo (Ctrl+Y)">↷</button></div>
+  <div class="grp"><label>GRID <input id="gw" type="number" min="4" max="600" value="70"> × <input id="gh" type="number" min="1" max="300" value="30"></label></div>
+  <div class="grp"><label>PX <input id="cw" type="number" min="4" max="40" value="10"> × <input id="ch" type="number" min="6" max="60" value="18"></label></div>
+  <span class="sp"></span>
+  <button id="imp" class="pill">⇪ IMPORT</button><input id="file" type="file" accept="image/*" hidden>
+  <div class="grp"><label>BG <input id="bgc" type="color" value="#080304"></label><button id="bgn">None</button></div>
+  <button id="prev" class="pill">◉ Preview</button>
+  <div class="dd"><button id="exp" class="pill hot">⭳ EXPORT</button>
+    <div id="expm"><button id="copy">Copy text</button><button id="save">Download .txt</button><button id="png">Download PNG</button><button id="gif">Download GIF</button><button id="html">Download HTML</button><button id="tfx">Download .tfx</button></div></div>
+  <span id="msg"></span>
+</header>
+<main>
+<aside>
+  <h4>TOOLKIT</h4><div id="tools" class="tools"></div>
+  <div class="row"><label><input id="sg" type="checkbox"> Grid</label><button id="clr">Clear</button></div>
+  <h4>GLYPHS</h4><div class="seg sm" id="gt"></div><div id="gl" class="gl"></div>
+  <div class="row"><label>Custom <input id="gc" maxlength="2" size="2"></label></div>
+  <h4>PALETTE</h4><div class="row"><span>FOREGROUND</span><input id="fg" type="color" value="#ffffff"></div><div id="pal" class="pal"></div>
+  <h4>GRADIENT</h4>
+  <div class="row"><input id="c1" type="color" value="#ff4d8d"><input id="c2" type="color" value="#4d7cff"><select id="dir"><option value="x">Left → right</option><option value="y">Top → bottom</option><option value="d">Diagonal</option></select></div>
+  <select id="gp" class="wide"></select>
+  <h4>EFFECTS</h4>
+  <select id="fx" class="wide"></select>
+  <div class="row"><span>Color motion</span><select id="cfx"><option value="none">None</option><option>rainbow</option><option>shift</option><option>strobe</option></select></div>
+  <button id="afx" class="wide">Animate grid</button>
+  <h4>EDIT</h4>
+  <div class="eg"><button id="cp">Copy</button><button id="ct">Cut</button><button id="ps">Paste</button><button id="fh">Flip ↔</button><button id="fv">Flip ↕</button><button id="mr">Mirror</button><button id="sv">Save</button><button id="ld">Load</button></div>
+  <input id="ldf" type="file" accept=".json" hidden>
+</aside>
+<section id="stage"><div id="wrap"><canvas id="cv"></canvas></div></section>
+<textarea id="code" spellcheck="false" hidden></textarea>
+</main>
+<div id="tg" class="modal" hidden><div class="box">
+  <div class="row"><b>Text Gen</b><span class="sp"></span><button id="tgx">✕</button></div>
+  <div class="ctl">
+    <label>Letter <input id="letter" value="S" maxlength="200" autocomplete="off"></label>
+    <label>Width <span id="colsv">70</span><input id="cols" type="range" min="20" max="300" value="70"></label>
+    <label>Wrap at <input id="wrap" type="number" min="4" max="60" value="14"></label>
+    <label>Characters <select id="ramp"></select></label>
+  </div>
+  <div class="seg tabs"><button data-tab="gallery" class="on">Designs</button><button data-tab="draw">Draw by hand</button></div>
+  <div id="gallery" class="gallery"></div>
+  <div id="draw" class="draw" hidden><canvas id="pad" width="520" height="520"></canvas>
+    <div class="row"><label>Brush <input id="brush" type="range" min="4" max="60" value="22"></label><button id="clear">Clear</button></div></div>
+</div></div>
+<script src="/app.js"></script>
+</body></html>
